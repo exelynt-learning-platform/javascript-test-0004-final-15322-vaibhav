@@ -1,19 +1,40 @@
-let n = 4;
-let size = n * 2 - 1;
+let number = 4;                   
+let totalSize = number * 2 - 1;   
 
-for (let i = 0; i < size; i++) {
-  let row = "";
+console.log("Matrix Size:", totalSize);
 
-  for (let j = 0; j < size; j++) {
+for (let rowIndex = 0; rowIndex < totalSize; rowIndex++) {
 
-    let top = i;
-    let left = j;
-    let right = size - 1 - j;
-    let bottom = size - 1 - i;
+  let rowData = "";
+  console.log("Row:", rowIndex);
 
-    let value = Math.min(top, left, right, bottom);
-    row += (n - value) + " ";
+  for (let colIndex = 0; colIndex < totalSize; colIndex++) {
+
+    let topDistance = rowIndex;
+    let leftDistance = colIndex;
+    let rightDistance = totalSize - 1 - colIndex;
+    let bottomDistance = totalSize - 1 - rowIndex;
+
+    console.log("top:", topDistance,
+                "left:", leftDistance,
+                "right:", rightDistance,
+                "bottom:", bottomDistance);
+
+    let minDistance = Math.min(
+      topDistance,
+      leftDistance,
+      rightDistance,
+      bottomDistance
+    );
+
+    console.log("Minimum Distance:", minDistance);
+
+    let finalNumber = number - minDistance;
+
+    console.log("Print Number:", finalNumber);
+
+    rowData += finalNumber + " ";
   }
 
-  console.log(row);
+  console.log("Row Output:", rowData);
 }
